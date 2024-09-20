@@ -48,14 +48,51 @@ def print_imp_loop(val):
             print(val, end=" ")
     print()
 
+def choice_pick():
+    pick = input("Pick among the following note that you can pick at least two options: "
+                 "\n -Pair numbers"
+                 "\n -Impair numbers"
+                 "\n -Increasing numbers"
+                 "\n -Decreasing numbers"
+                 "\n -All the numbers"
+                 "\n choice: ")
+    return pick
+
+def choice(pick, val):
+    pick = pick.lower() # Convert input to lower for case-insensitive comparison
+    if pick == "pair":
+        print_pair_loop(val)
+    elif pick == "impair":
+        print_imp_loop(val)
+    elif pick == "increasing":
+        print_croi_loop(val)
+    elif pick ==  "decreasing":
+        print_decr_loop(val)
+    elif pick == "pair and increasing":
+        print_pair_loop(val)
+        print_croi_loop(val)
+    elif pick == "pair and decreasing":
+        print_pair_loop(val)
+        print_decr_loop(val)
+    elif pick == "impair and decreasing":
+        print_imp_loop(val)
+        print_decr_loop(val)
+    elif pick == "impair and increasing":
+        print_imp_loop(val)
+        print_croi_loop(val)
+    elif pick == "all":
+        print_pair_loop(val)
+        print_imp_loop(val)
+        print_croi_loop(val)
+        print_decr_loop(val)
+
 def main():
 
     init_val = get_valid_input()
-    print_decr_loop(init_val)
-    print_croi_loop(init_val)
-    print_pair_loop(init_val)
-    print_imp_loop(init_val)
+    user_choice = choice_pick()
+    choice(user_choice, init_val)
 
 if __name__ == '__main__':
     main()
+
 
